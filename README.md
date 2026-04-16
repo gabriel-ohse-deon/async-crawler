@@ -1,44 +1,44 @@
 # Async Crawler Java
 
-Um crawler assíncrono que procura por palavras em um site e armazena as urls onde foram encontradas.  
-Desenvolvido em Java 21, focado em eficiência, escalabilidade e design patterns modernos. 
-O projeto utiliza o ecossistema Maven e é totalmente conteinerizado com Docker para facilitar o deploy e a execução.
+An asynchronous crawler that searches for keywords on websites and stores the URLs where they were found.
+Developed in Java 21, focusing on efficiency, scalability, and modern design patterns.
+The project utilizes the Maven ecosystem and is fully containerized with Docker to facilitate deployment and execution.
 
-## Tecnologias Utilizadas
+## Technologies Used
 
-* **Java 21**: Utilizando as funcionalidades mais recentes da linguagem (como melhorias em concorrência e sintaxe).
-* **Maven**: Gerenciamento de dependências e automação de build.
-* **Spark Java**: Framework web leve para a interface do crawler.
-* **Gson**: Processamento de JSON com alta performance e suporte a Pretty Printing.
-* **Docker**: Ambiente isolado e reprodutível para execução.
-* **JUnit 5 & Mockito**: Garantia de qualidade através de testes unitários e de integração.
+* **Java 21**: Utilizing the latest language features, such as improvements in concurrency and syntax.
+* **Maven**: Dependency management and build automation.
+* **Spark Java**: A lightweight web framework for the crawler interface.
+* **Gson**: High-performance JSON processing with Pretty Printing support.
+* **Docker**: Isolated and reproducible environment for execution.
+* **JUnit 5 & Mockito**: Quality assurance through unit and integration tests.
 
-## ️ Arquitetura de Configuração
+## Configuration Architecture
 
-O projeto utiliza um sistema flexível de **Service Provider Interface (SPI)** para carregar provedores de configuração de forma dinâmica. A hierarquia de busca de parâmetros segue esta ordem de prioridade:
+The project uses a flexible **Service Provider Interface (SPI)** system to load configuration providers dynamically. The parameter search hierarchy follows this order of priority:
 
-1.  **Variáveis de Ambiente**: Verificadas em primeiro lugar (via `EnvConfigProvider`), facilitando configurações em ambientes Cloud e containers Docker.
-2.  **Arquivos JSON**: Utilizados como fallback (via `FileConfigProvider`) para configurações estruturadas no sistema de arquivos.
-3.  **Valores Padrão (Hardcoded)**: Para casos específicos de infraestrutura onde um arquivo JSON seria redundante (como o caminho de armazenamento de dados), o sistema utiliza um valor padrão seguro definido no código.
+1.  **Environment Variables**: Checked first (via `EnvConfigProvider`), facilitating configurations in Cloud environments and Docker containers.
+2.  **JSON Files**: Used as a fallback (via `FileConfigProvider`) for structured configurations in the file system.
+3.  **Default Values (Hardcoded)**: For specific infrastructure cases where a JSON file would be redundant (such as the data storage path), the system uses a secure default value defined in the code.
 
-### Exemplo: Gerenciamento de Armazenamento
-O sistema utiliza a classe `CrawlStoragePathProvider` para determinar o destino dos resultados:
-* Ele tenta ler a variável de ambiente `CRAWL_DATA_DIR`.
-* Caso não esteja configurada, utiliza por padrão a pasta `data/crawls` na raiz do projeto.
-* O `JsonCrawlRepository` garante a criação automática dessa estrutura de pastas no primeiro uso (através de `mkdirs()`).
+### Example: Storage Management
+The system uses the `CrawlStoragePathProvider` class to determine the destination of the results:
+* It attempts to read the `CRAWL_DATA_DIR` environment variable.
+* If not configured, it defaults to the `data/crawls` folder at the project root.
+* The `JsonCrawlRepository` ensures the automatic creation of this folder structure on first use (using `mkdirs()`).
 
-## Como Executar
+## How to Run
 
-### Pré-requisitos
-* Docker instalado.
-* (Opcional) Maven 3.9+ e Java 21 se desejar rodar localmente sem container.
+### Prerequisites
+* Docker installed.
+* (Optional) Maven 3.9+ and Java 21 if you wish to run locally without a container.
 
-### Via Docker (Recomendado)
-Para compilar e rodar o projeto em um container isolado:
+### Via Docker (Recommended)
+To compile and run the project in an isolated container:
 
 ```bash
-# Build da imagem (forçando clean build)
+# Image build (forcing a clean build)
 docker build --no-cache -t async-crawler .
 
-# Execução do container
+# Container execution
 docker run -p 4567:4567 async-crawler
