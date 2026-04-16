@@ -1,0 +1,6 @@
+{
+  "followRelativeLinks": true,
+  "maxDepth": 5,
+  "maxUrls": 500,
+  "maxThreads": 5
+}

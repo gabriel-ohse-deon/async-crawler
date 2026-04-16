@@ -1,0 +1,7 @@
+com.gabriel.backend.config.FetchEnvConfigProvider
+com.gabriel.backend.config.FetchFileConfigProvider
+com.gabriel.backend.config.PollerEnvConfigProvider
+com.gabriel.backend.config.PollerFileConfigProvider
+com.gabriel.backend.config.CrawlEnvConfigProvider
+com.gabriel.backend.config.CrawlFileConfigProvider
+

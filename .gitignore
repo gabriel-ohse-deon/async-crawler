@@ -1,0 +1,15 @@
+# Compilados e Build
+target/
+*.class
+
+# IDEs (IntelliJ, VS Code)
+.idea/
+*.iml
+.vscode/
+
+# Sistema Operacional
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

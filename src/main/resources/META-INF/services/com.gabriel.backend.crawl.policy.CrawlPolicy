@@ -1,0 +1,4 @@
+com.gabriel.backend.crawl.policy.SameDomainPolicy
+com.gabriel.backend.crawl.policy.RelativeLinksPolicy
+com.gabriel.backend.crawl.policy.HttpOnlyPolicy
+com.gabriel.backend.crawl.policy.HtmlContentOnlyPolicy

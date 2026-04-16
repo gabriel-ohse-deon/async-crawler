@@ -1,0 +1,5 @@
+{
+  "userAgent": "Mozilla/5.0",
+  "fetchTimeoutMs": 10000,
+  "connectionTimeoutMs": 5000
+}

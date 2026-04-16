@@ -1,0 +1,4 @@
+{
+  "flushIntervalMs": 5000,
+  "maxPendingUpdates": 10
+}

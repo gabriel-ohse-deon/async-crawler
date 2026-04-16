@@ -1,0 +1,6 @@
+com.gabriel.backend.crawl.normalization.QueryParamNormalizer
+com.gabriel.backend.crawl.normalization.SchemaAndHostNormalizer
+com.gabriel.backend.crawl.normalization.MalformedSchemeNormalizerStep
+com.gabriel.backend.crawl.normalization.TrailingSlashNormalizer
+com.gabriel.backend.crawl.normalization.FragmentRemoverNormalizer
+

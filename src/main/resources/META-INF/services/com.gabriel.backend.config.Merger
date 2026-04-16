@@ -1,0 +1,3 @@
+com.gabriel.backend.config.CrawlConfigMerger
+com.gabriel.backend.config.FetchConfigMerger
+com.gabriel.backend.config.CrawlPoolerConfigMerger
